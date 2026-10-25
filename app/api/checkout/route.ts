@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   ];
   try {
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
+      allowed_payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
       expires_at: Math.floor(Date.now() / 1000) + 60 * 30,
